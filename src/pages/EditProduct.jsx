@@ -1,13 +1,19 @@
-import { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-import { products } from '../mock/mockData';
+import { products } from "../mock/mockData";
 
 const EditProduct = () => {
-  // Your code here...
+  const { productId } = useParams();
+  const navigate = useNavigate();
+
+  const product = products.find((p) => p.id === parseInt(productId));
 
   const [formData, setFormData] = useState({
-    // Your code here...
+    name: product.name,
+    description: product.description,
+    price: product.price,
+    stock: product.stock,
   });
 
   const handleChange = (e) => {
@@ -28,21 +34,42 @@ const EditProduct = () => {
       <form onSubmit={handleSubmit}>
         <div className="input-group">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} />
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
         </div>
         <div className="input-group">
           <label htmlFor="description">Description</label>
-          <textarea name="description" value={formData.description} onChange={handleChange}></textarea>
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+          ></textarea>
         </div>
         <div className="input-group">
           <label htmlFor="price">Price</label>
-          <input type="number" name="price" value={formData.price} onChange={handleChange} />
+          <input
+            type="number"
+            name="price"
+            value={formData.price}
+            onChange={handleChange}
+          />
         </div>
         <div className="input-group">
           <label htmlFor="stock">Stock</label>
-          <input type="number" name="stock" value={formData.stock} onChange={handleChange} />
+          <input
+            type="number"
+            name="stock"
+            value={formData.stock}
+            onChange={handleChange}
+          />
         </div>
-        <button className="submit-btn" type="submit">Update</button>
+        <button className="submit-btn" type="submit">
+          Update
+        </button>
       </form>
     </div>
   );
