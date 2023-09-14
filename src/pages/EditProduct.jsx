@@ -25,7 +25,7 @@ const EditProduct = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Your code here...
+    navigate(`/products/${productId}`);
   };
 
   return (
