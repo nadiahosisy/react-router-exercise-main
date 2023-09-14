@@ -25,7 +25,10 @@ const SharedLayout = ({ user }) => {
           </li>
         </ul>
       </nav>
-      {/* Your code here */}
+      <main>
+        <Outlet />
+      </main>
+
       <footer>
         <p>All Rights Reserved</p>
       </footer>
