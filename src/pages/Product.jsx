@@ -1,7 +1,11 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams } from "react-router-dom";
 
 const Product = ({ products }) => {
-  // Your code here...
+  const { productId } = useParams();
+  const product = products.find((p) => p.id === parseInt(productId));
+  if (!product) {
+    return <div>Product not found!</div>;
+  }
   return (
     <div className="product-detail-container">
       <h2>{product.name}</h2>
@@ -14,7 +18,9 @@ const Product = ({ products }) => {
           <span className="out-of-stock">Out of Stock</span>
         )}
       </div>
-      {/* Your code here... */}
+      <Link to={`/products/${productId}/edit`} className="edit-link">
+        Edit Product
+      </Link>
     </div>
   );
 };
