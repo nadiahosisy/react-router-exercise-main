@@ -8,7 +8,7 @@ import { user, products } from "./mock/mockData.js";
 const routes = [
   {
     path: "/",
-    element: <SharedLayout userdata={user} />,
+    element: <SharedLayout user={user} />,
     children: [
       {
         index: true,

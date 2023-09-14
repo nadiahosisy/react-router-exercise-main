@@ -15,13 +15,17 @@ const SharedLayout = ({ user }) => {
             <NavLink
               to={"/"}
               className={({ isActive }) => (isActive ? "active" : undefined)}
-            />
+            >
+              Home
+            </NavLink>
           </li>
           <li>
             <NavLink
               to={"/add"}
               className={({ isActive }) => (isActive ? "active" : undefined)}
-            />
+            >
+              Add Product
+            </NavLink>
           </li>
         </ul>
       </nav>
